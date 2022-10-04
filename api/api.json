@@ -1,0 +1,19 @@
+[{
+	"id": 0,
+	"author": "SampleUsername",
+	"github": "https://github.com/username.git",
+	"type": {
+		"anger": [
+			"This is a sample quote",
+			"This is a sample quote 2"
+		],
+		"happy": [
+			"This is a sample quote",
+			"This is a sample quote 2"
+		],
+		"new_emotion_type": [
+			"This is a new sample quote",
+			"This is a new sample quote 2"
+		]
+	}
+}]

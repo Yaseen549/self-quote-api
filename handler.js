@@ -10,7 +10,8 @@ const randomQuote = () => {
 router.get("/",  (req, res) => {
   try{
     // res.send("Page build under progress");
-    res.render('home')
+    // res.render('home');
+    res.sendFile(__dirname + "/index.html");
   }catch(error){
     console.error(error);
     return res.status(500).send("Server error");

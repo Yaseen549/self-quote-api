@@ -20,14 +20,15 @@ app.use(express.json({extended:false}));
 
 // app.use("/",home);
 app.use("/api/",router);
-// app.get("/",  (req, res) => {
-//   try{
-//     res.sendFile(__dirname + "/views/index.html");
-//   }catch(error){
-//     console.error(error);
-//     return res.status(500).send("Server error");
-//   }
-// });
+app.use("/",  (req, res) => {
+  try{
+    res.sendFile(__dirname + "/views/index.html");
+    // res.sendFile("index.html");
+  }catch(error){
+    console.error(error);
+    return res.status(500).send("Server error");
+  }
+});
 // app.use("/api/:api", function(req, res, next){
 //   console.log('Request Type:', req.method);
 //   console.log(req.params.api);

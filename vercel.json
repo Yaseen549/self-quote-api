@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name":"Self Quote API"
   "builds": [{
     "src": "./index.js",
     "use": "@vercel/node"

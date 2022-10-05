@@ -20,15 +20,15 @@ app.use(express.json({extended:false}));
 
 // app.use("/",home);
 app.use("/api/",router);
-app.use("/",  (req, res) => {
-  try{
-    res.sendFile(__dirname + "/views/index.html");
-    // res.sendFile("index.html");
-  }catch(error){
-    console.error(error);
-    return res.status(500).send("Server error");
-  }
-});
+// app.use("/",  (req, res) => {
+//   try{
+//     res.sendFile(__dirname + "/views/index.html");
+//     // res.sendFile("index.html");
+//   }catch(error){
+//     console.error(error);
+//     return res.status(500).send("Server error");
+//   }
+// });
 // app.use("/api/:api", function(req, res, next){
 //   console.log('Request Type:', req.method);
 //   console.log(req.params.api);
@@ -36,10 +36,9 @@ app.use("/",  (req, res) => {
 //    next();
 // });
 
-// app.get("/api/:type",function(req, res){
-//   const requestedtype = req.params.type;
-//   console.log(requestedtype);
-// });
+app.use('/', (req, res) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+})
 
 
 const PORT = process.env.PORT || 8080;

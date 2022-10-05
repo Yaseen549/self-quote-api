@@ -1,4 +1,4 @@
-// const {listOfFiles, listOfPaths} = require('./paths');
+const {listOfFiles, listOfPaths} = require('./filesPaths');
 const quotes = require('./apis/api.json');
 const express = require("express");
 const router = express.Router();
@@ -9,6 +9,7 @@ const router = express.Router();
 // for(let i=0; i<=listOfFiles.length-1;i++){
 //   console.log(listOfFiles[i]);
 // }
+console.log(listOfFiles);
 
 const randomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)];

@@ -11,21 +11,13 @@ var walkSync = function(dir, filelist) {
       filelist = walkSync(dir + file + '/', filelist);
     }
     else {
-      // filelist.push(file);
       filelist.push(dir+file);
     }
   });
-  // console.log(dir);
   return filelist;
 };
-
 listOfFiles = walkSync("./apis/");
-// console.log(listOfFiles);
-// console.log(listOfFiles.length);
-// for(var i = 0; i <= listOfFiles.length-1; i++){
-//   console.log(listOfFiles[i]);
-// }
-// console.log(listOfFiles[0]);
+
 var allFilesPath = function(dirPath, pathList) {
   var fs = fs || require('fs'),
       files2 = fs.readdirSync(dirPath);
@@ -35,15 +27,11 @@ var allFilesPath = function(dirPath, pathList) {
       pathList = allFilesPath(dirPath + file2 + '/', pathList);
     }
     else {
-      // filelist.push(file);
       pathList.push(dirPath);
     }
   });
   return pathList;
 };
 listOfPaths = allFilesPath("./apis/");
-// console.log(listOfPaths);
-
-
 
 module.exports = {listOfFiles, listOfPaths};

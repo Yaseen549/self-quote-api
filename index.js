@@ -8,10 +8,10 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(express.static("public"));
-app.use(express.static('public'));
 app.use(express.json({extended:false}));
 
 // app.use("/", function(req, res){
@@ -38,7 +38,7 @@ app.use("/api/",router);
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
-})
+});
 
 
 const PORT = process.env.PORT || 8080;

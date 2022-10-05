@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const {router} = require('./handler');
+const path = require('path');
 // const product = require("./api/product");
 
 const bodyParser = require("body-parser");
@@ -40,9 +41,18 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
 });
 
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Server is runing in port ${PORT}`));
+
 module.exports = app;
 
 
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server is runing in port ${PORT}`));
+
+
+
+
+
+
+
+

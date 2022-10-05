@@ -18,7 +18,7 @@ var walkSync = function(dir, filelist) {
   return filelist;
 };
 
-listOfFiles = walkSync("./apis/");
+listOfFiles = walkSync("apis/");
 
 var allFilesPath = function(dirPath, pathList) {
   var fs = fs || require('fs'),
@@ -34,6 +34,6 @@ var allFilesPath = function(dirPath, pathList) {
   });
   return pathList;
 };
-listOfPaths = allFilesPath("./apis/");
+listOfPaths = allFilesPath("apis/");
 
 module.exports = {listOfFiles, listOfPaths};

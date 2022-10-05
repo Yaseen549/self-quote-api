@@ -1,7 +1,7 @@
 const {listOfFiles, listOfPaths} = require('./filesPaths');
 // const quotes = require('./apis/api.json');
 var nameOfFile = listOfFiles[0];
-const quotes = require(`${nameOfFile}`);
+const quotes = require(`./${nameOfFile}`);
 const express = require("express");
 const router = express.Router();
 // console.log(typeof(listOfFiles[0]));

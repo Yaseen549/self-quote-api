@@ -1,14 +1,14 @@
-const {listOfFiles, listOfPaths} = require('./paths');
-// const quotes = require('./apis/api.json');
+// const {listOfFiles, listOfPaths} = require('./paths');
+const quotes = require('./apis/api.json');
 const express = require("express");
 const router = express.Router();
 
-quotes = require(listOfFiles[0]);
+// quotes = require(listOfFiles[0]);
 // console.log(quotes);
 
-for(let i=0; i<=listOfFiles.length-1;i++){
-  console.log(listOfFiles[i]);
-}
+// for(let i=0; i<=listOfFiles.length-1;i++){
+//   console.log(listOfFiles[i]);
+// }
 
 const randomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)];

@@ -61,7 +61,7 @@ router.get("/",  (req, res) => {
 });
 router.get("/quotes",  (req, res) => {
   try{
-      res.json(quotes);
+      res.json(require(listOfFiles[0]));
   }catch(error){
     console.error(error);
     return res.status(500).send("Server error");

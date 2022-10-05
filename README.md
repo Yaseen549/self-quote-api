@@ -12,7 +12,7 @@ Inspire the developers with your quotes.
   <a href="https://selfqa.vercel.com/"><strong>Explore  docs »</strong></a>
   <br>
   <br>
-  <a href="https://github.com/Yaseen549/self-quote-api/issues/new?assignees=&labels=bug&template=bug_report.yml">Report bug</a>
+  <a href="https://github.com/Yaseen549/self-quote-api/issues/new?assignees=-&labels=bug&template=bug_report.yml">Report bug</a>
   ·
   <a href="https://github.com/Yaseen549/self-quote-api/issues/new?assignees=&labels=feature&template=feature_request.yml">Request feature</a>
 </p>

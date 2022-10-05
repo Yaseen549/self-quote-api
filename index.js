@@ -40,6 +40,9 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
 });
 
+module.exports = app;
+
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server is runing in port ${PORT}`));

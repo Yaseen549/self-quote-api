@@ -7,7 +7,7 @@ app.use(express.static('public'));
 
 app.use(express.json({extended:false}));
 
-app.use("/api/",router);
+app.use("/apis/",router);
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});

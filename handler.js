@@ -3,9 +3,8 @@ const {listOfFiles, listOfPaths} = require('./filesPaths');
 const express = require("express");
 const router = express.Router();
 
-var nameOfFile = listOfFiles[0];
-const quotes = require(`./${nameOfFile}`);
-
+const quotes = require(`./${listOfFiles[0]}`);
+console.log(quotes);
 const randomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
@@ -35,10 +34,27 @@ router.get("/random",  (req, res) => {
     return res.status(500).send("Server error");
   }
 });
+router.get("/:country/:state/:city", async (req, res) => {
+  const country = req.params.country;
+  const state = req.params.state;
+  const city = req.params.city;
+
+  // console.log(country,state,city);
+  try{
+    // res.send(reqApi+" URL is not integrated Yet, please use: api/quotes or api/random");
+    // res.json(`./apis/${country}/${state}/${city}.json`)
+    const userFiles = require(`./apis/${country}/${state}/${city}.json`);
+    // console.log(userFiles);
+    res.json(userFiles)
+  }catch(error){
+    console.error(error);
+    return res.status(500).send("Server error");
+  }
+});
 router.get("/:api", async (req, res) => {
   const reqApi = req.params.api;
   try{
-    res.send(reqApi+" URL is Integrated Yet, please use: api/quotes or api/random");
+    res.send(reqApi+" URL is not integrated Yet, please use: api/quotes or api/random");
   }catch(error){
     console.error(error);
     return res.status(500).send("Server error");

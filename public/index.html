@@ -29,7 +29,7 @@
 //   var display = `Title: ${data.type}<br>`
 //   $(".display").html(display);
 // });
-$.getJSON('https://selfqa-e2.vercel.app/api/quotes', function(data){
+$.getJSON(`https://${process.env.VERCEL_URL}/api/quotes`, function(data){
   var display = `Title: ${data[0].type}<br>`
   console.log(display);
   $(".display").html(display);

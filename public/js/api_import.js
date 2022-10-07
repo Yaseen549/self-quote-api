@@ -5,10 +5,10 @@
 
 // let url = 'https://selfqa-e2.vercel.app/api/quotes';
 async function load() {
-  const userFiles = require(`./apis/api.json`);
+  const userFiles = require(`https://${process.env.VERCEL_URL}/api/quotes`);
     // let url = 'https://selfqa-e2.vercel.app/api/quotes';
     let obj = await (await fetch(userFiles)).json();
-    // console.log(obj);
+    console.log(obj);
 }
 
 load();

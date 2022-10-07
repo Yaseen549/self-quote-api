@@ -22,6 +22,10 @@ app.get('/', cors(corsOptions), (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
 });
 
+app.get("/url",(req, res) => {
+  res.send(`https://${process.env.VERCEL_URL}`);
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is runing in port ${PORT}`));
 

@@ -1,13 +1,19 @@
-// exports.handler = async (event) => {
-//     // TODO implement
-//     const response = {
-//         statusCode: 200,
-//                 headers: {
-//             "Access-Control-Allow-Headers" : "Content-Type",
-//             "Access-Control-Allow-Origin": "*",
-//             "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-//         },
-//         body: JSON.stringify('Hello from Lambda!'),
-//     };
-//     return response;
-// };
+// package version
+const loadPackageDetails = async () => {
+  try {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/apis/quotes`);
+    packageDetails = await res.json();
+    packageVersion = packageDetails[0].type;
+    // downloadURL = packageDetails.info.download_url;
+    // lastDownloads = packageDetails.info.downloads.last_day;
+    console.log(packageVersion);
+    $(".packageVersion").text("v" + packageVersion);
+    // $(".downloadURL").attr("href",downloadURL);
+    // $(".lastDownloads").text(lastDownloads);
+
+
+  } catch (err) {
+    console.error(err);
+  }
+};
+loadPackageDetails();

@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 const quotes = require(`./${listOfFiles[0]}`);
-console.log(quotes);
+// console.log(quotes);
 const randomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }

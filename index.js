@@ -12,9 +12,11 @@ app.use("/apis/",router);
 var corsOptions = {
   // origin: 'https://selfqa-e2.vercel.app/',
   // origin: 'https://localhost:3000/',
-  origin: `${process.env.VERCEL_URL}` || `https://localhost:3000`,
+  origin: `https://${process.env.VERCEL_URL}` || `https://localhost:3000`,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
+
+console.log(`https://${process.env.VERCEL_URL}`);
 
 app.get('/', cors(corsOptions), (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});

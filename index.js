@@ -1,9 +1,9 @@
 const express = require("express");
-var cors = require('cors');
 const app = express();
 const {router} = require('./handler');
 const path = require('path');
 // app.use(cors())
+var cors = require('cors');
 app.use(express.static('public'));
 
 app.use(express.json({extended:false}));

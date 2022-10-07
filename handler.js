@@ -19,6 +19,7 @@ router.get("/",  (req, res) => {
   }
 });
 router.get("/quotes",  (req, res) => {
+  console.log(`${process.env.VERCEL_URL}`);
   try{
       res.json(quotes);
   }catch(error){
@@ -39,7 +40,6 @@ router.get("/:country/:state/:city", async (req, res) => {
   const state = req.params.state;
   const city = req.params.city;
 
-  // console.log(country,state,city);
   try{
     // res.send(reqApi+" URL is not integrated Yet, please use: api/quotes or api/random");
     // res.json(`./apis/${country}/${state}/${city}.json`)

@@ -9,16 +9,27 @@ app.use(express.static('public'));
 app.use(express.json({extended:false}));
 
 app.use("/apis/",router);
-var corsOptions = {
-  // origin: 'https://selfqa-e2.vercel.app/',
-  // origin: 'https://localhost:3000/',
-  origin: `https://${process.env.VERCEL_URL}` || `https://localhost:3000`,
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// var corsOptions = {
+//   // origin: 'https://selfqa-e2.vercel.app/',
+//   // origin: 'https://localhost:3000/',
+//   origin: `https://${process.env.VERCEL_URL}` || `https://localhost:3000`,
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+app.use(cors({
+  origin: 'https://selfqa-e2.vercel.app/'
+}));
+app.use((req, res, next) => {
+  const allowedOrigins = ['https://selfqa-e2.vercel.app', 'https://selfqa-e2.vercel.app/apis/quotes', 'https://localhost:3000'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  return next();
+});
 
-console.log(corsOptions);
+// console.log(corsOptions);
 
-app.get('/', cors(corsOptions), (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
 });
 

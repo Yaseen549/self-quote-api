@@ -16,14 +16,18 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-console.log(`https://${process.env.VERCEL_URL}`);
+console.log(corsOptions);
 
 app.get('/', cors(corsOptions), (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
 });
 
-app.get("/url",(req, res) => {
+app.get("/vercel_url",(req, res) => {
   res.send(`https://${process.env.VERCEL_URL}`);
+});
+
+app.get("/urlfetch",(req, res) => {
+  res.send();
 });
 
 const PORT = process.env.PORT || 3000;

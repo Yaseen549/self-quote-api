@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Providing self motivation quotes for developers as api",
   "main": "index.js",
+  "engines":{
+    "node": "16.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"

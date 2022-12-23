@@ -1,30 +1,18 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const {router} = require('./handler');
 const path = require('path');
 
 app.use(express.static('public'));
 
-app.use(express.json({extended:false}));
 
-app.use("/api/",router);
-
+//index.js
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: path.join(__dirname, '/')});
-});
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+})
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server is runing in port ${PORT}`));
 
+
+app.listen(process.env.PORT || 3000);
+
+// index.js
 module.exports = app;
-
-
-
-
-
-
-
-
-
-
-
